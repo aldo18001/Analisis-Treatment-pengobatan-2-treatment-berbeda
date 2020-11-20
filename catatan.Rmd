@@ -1,0 +1,16 @@
+---
+title: "Keterangan Tambahan"
+output: html_notebook
+---
+
+# Keterangan Kolom
+
+QoL0 = Kualitas hidup awal pasien ( minggu ke-1 )
+
+Pada minggu ke empat, dilakukan treatment, dan pengukuran kualitas hidup dimulai saat minggu ke-5
+
+QoL1 = Kualitas hidup pasien setelah treatment minggu ke-5 
+
+QoL2 = Kualitas hidup pasien setelah treatment minggu ke-10
+
+QoL3 = Kualitas hidup pasien setelah treatment minggu ke-15
