@@ -26,5 +26,4 @@ a. Did the treatment A improve the quality of life of the patients?
 
 b. Did the supplemented treatment B provide better quality of life improvements?
 
-c. If the treatment A improved the quality of life of the patient, did the improvements
-increase by the time?
+c. If the treatment A improved the quality of life of the patient, did the improvements increase by the time?
