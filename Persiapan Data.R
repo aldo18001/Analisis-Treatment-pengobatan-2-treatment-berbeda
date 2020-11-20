@@ -13,6 +13,20 @@ data_AB <- data[which(data$Treat == 'AB'),]
 head(data_A)
 head(data_AB)
 
+#Modifikasi Tabel
+diff_data_A <- data.frame("Treat" = data_A$Treat , "week5" = data_A$QoL1-data_A$QoL0, "week10" = data_A$QoL2-data_A$QoL1, 
+                          "week15" = data_A$QoL3-data_A$QoL2)
+head(diff_data_A)
+
+diff_data_AB <- data.frame("Treat" = data_AB$Treat , "week5" = data_AB$QoL1-data_AB$QoL0, "week10" = data_AB$QoL2-data_AB$QoL1, 
+                           "week15" = data_AB$QoL3-data_AB$QoL2)
+head(diff_data_AB)
+
+#Gabung data selisih
+diff_data <- rbind(diff_data_A,diff_data_AB)
+nrow(diff_data)
+View(diff_data)
+
 #Mencari outlier
 
 '''
@@ -21,7 +35,7 @@ Batas Atas = QA + 3/2 dq
 
 dq = selisih quartil
 
-'''
+
 summary(data)
 
 #Untuk QoL0
@@ -38,7 +52,6 @@ data <- data[which(data$QoL0>BB0),]
 data
 nrow(data)
 
-'''
 #Untuk QoL1
 QA1 = 94
 QB1 = 76
@@ -82,7 +95,7 @@ data
 nrow(data)
 '''
 
-
+'''
 ## Pencilan Data treatment A
 
 summary(data_A)
@@ -211,21 +224,122 @@ data_AB <- data_AB[which(data_AB$QoL3>BBB3),]
 data_AB
 nrow(data_AB)
 
+#data baru gabungan
+datan <- rbind(data_A, data_AB)
+'''
 
-#Modifikasi Tabel
-diff_data_A <- data.frame("Treat" = data_A$Treat , "week5" = data_A$QoL1-data_A$QoL0, "week10" = data_A$QoL2-data_A$QoL1, 
-                        "week15" = data_A$QoL3-data_A$QoL2)
-head(diff_data_A)
 
-diff_data_AB <- data.frame("Treat" = data_AB$Treat , "week5" = data_AB$QoL1-data_AB$QoL0, "week10" = data_AB$QoL2-data_AB$QoL1, 
-                          "week15" = data_AB$QoL3-data_AB$QoL2)
-head(diff_data_A)
 
-#Gabung data selisih
-diff_data <- rbind(diff_data_A,diff_data_AB)
-nrow(diff_data)
-View(diff_data)
+## Pencilan Data treatment A (selisih dengan pengukuran QoL sebelumnya)
+
+summary(diff_data_A)
+
+#Untuk week5
+
+QAA0 = 38.5
+QBA0 = 15
+dqA0 = QAA0-QBA0
+BAA0 = QAA0 + 1.5*dqA0
+BBA0 = QBA0 - 1.5*dqA0
+BAA0
+BBA0
+
+diff_data_A <- diff_data_A[which(diff_data_A$week5<BAA0),]
+diff_data_A <- diff_data_A[which(diff_data_A$week5>BBA0),]
+diff_data_A
+nrow(diff_data_A)
+
+#Untuk week10
+
+QAA1 = 4
+QBA1 = -0.75
+dqA1 = QAA1-QBA1
+BAA1 = QAA1 + 1.5*dqA1
+BBA1 = QBA1 - 1.5*dqA1
+BAA1
+BBA1
+
+diff_data_A <- diff_data_A[which(diff_data_A$week10<BAA1),]
+diff_data_A <- diff_data_A[which(diff_data_A$week10>BBA1),]
+diff_data_A
+nrow(diff_data_A)
+
+#Untuk week15
+
+QAA2 = 4
+QBA2 = -2
+dqA2 = QAA2-QBA2
+BAA2 = QAA2 + 1.5*dqA2
+BBA2 = QBA2 - 1.5*dqA2
+BAA2
+BBA2
+
+diff_data_A <- diff_data_A[which(diff_data_A$week15<BAA2),]
+diff_data_A <- diff_data_A[which(diff_data_A$week15>BBA2),]
+diff_data_A
+nrow(diff_data_A)
+
+
+## Pencilan Data treatment AB (selisih dengan pengukuran QoL sebelumnya)
+
+summary(diff_data_AB)
+
+#Untuk week5
+
+QAB0 = 38
+QBB0 = 19.5
+dqB0 = QAB0-QBB0
+BAB0 = QAB0 + 1.5*dqB0
+BBB0 = QBB0 - 1.5*dqB0
+BAB0
+BBB0
+
+diff_data_AB <- diff_data_AB[which(diff_data_AB$week5<BAB0),]
+diff_data_AB <- diff_data_AB[which(diff_data_AB$week5>BBB0),]
+diff_data_AB
+nrow(diff_data_AB)
+
+#Untuk week10
+
+QAB1 = 5
+QBB1 = -1
+dqB1 = QAB1-QBB1
+BAB1 = QAB1 + 1.5*dqB1
+BBB1 = QBB1 - 1.5*dqB1
+BAB1
+BBB1
+
+diff_data_AB <- diff_data_AB[which(diff_data_AB$week10<BAB1),]
+diff_data_AB <- diff_data_AB[which(diff_data_AB$week10>BBB1),]
+diff_data_AB
+nrow(diff_data_AB)
+
+#Untuk week15
+
+QAB2 = 2
+QBB2 = -7
+dqB2 = QAB2-QBB2
+BAB2 = QAB2 + 1.5*dqB2
+BBB2 = QBB2 - 1.5*dqB2
+BAB2
+BBB2
+
+diff_data_AB <- diff_data_AB[which(diff_data_AB$week15<BAB2),]
+diff_data_AB <- diff_data_AB[which(diff_data_AB$week15>BBB2),]
+diff_data_AB
+nrow(diff_data_AB)
+
+
+#data baru gabungan
+diff_data <- rbind(diff_data_A, diff_data_AB)
+
 
 library(writexl)
 write_xlsx(diff_data_A, "tabel selisih A.xlsx")
 write_xlsx(diff_data_AB, "tabel selisih AB.xlsx")
+write_xlsx(diff_data, "tabel selisih gabungan.xlsx")
+
+
+library(normtest)
+library(nortest)
+lillie.test(diff_data$week15)
