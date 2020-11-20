@@ -15,6 +15,11 @@ QoL2 = Kualitas hidup pasien setelah treatment minggu ke-10
 
 QoL3 = Kualitas hidup pasien setelah treatment minggu ke-15
 
+week5 = Selisih kualitas hidup di week 5 dan week 1
+week10 = Selisih kualitas hidup di week 10 dan week 5
+week15 = Selisih kualitas hidup di week 15 dan week 15
+
+
 #Pertanyaan
 
 a. Did the treatment A improve the quality of life of the patients?
