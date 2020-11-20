@@ -22,3 +22,9 @@ head(diff_data)
 
 library(writexl)
 write_xlsx(diff_data, "tabel selisih.xlsx")
+
+#Pemisahan data modifikasi tabel
+diff_data_A <- diff_data[which(diff_data$Treat == 'A'),-1]
+diff_data_AB <- diff_data[which(diff_data$Treat == 'AB'),-1]
+head(diff_data_A)
+head(diff_data_AB)
