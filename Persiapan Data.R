@@ -221,6 +221,11 @@ diff_data_AB <- data.frame("Treat" = data_AB$Treat , "week5" = data_AB$QoL1-data
                           "week15" = data_AB$QoL3-data_AB$QoL2)
 head(diff_data_A)
 
+#Gabung data selisih
+diff_data <- rbind(diff_data_A,diff_data_AB)
+nrow(diff_data)
+View(diff_data)
+
 library(writexl)
 write_xlsx(diff_data_A, "tabel selisih A.xlsx")
 write_xlsx(diff_data_AB, "tabel selisih AB.xlsx")
