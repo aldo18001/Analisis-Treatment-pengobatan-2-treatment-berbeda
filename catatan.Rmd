@@ -14,3 +14,12 @@ QoL1 = Kualitas hidup pasien setelah treatment minggu ke-5
 QoL2 = Kualitas hidup pasien setelah treatment minggu ke-10
 
 QoL3 = Kualitas hidup pasien setelah treatment minggu ke-15
+
+#Pertanyaan
+
+a. Did the treatment A improve the quality of life of the patients?
+
+b. Did the supplemented treatment B provide better quality of life improvements?
+
+c. If the treatment A improved the quality of life of the patient, did the improvements
+increase by the time?
